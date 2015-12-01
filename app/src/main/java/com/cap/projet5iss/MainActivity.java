@@ -1,6 +1,7 @@
 package com.cap.projet5iss;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -23,6 +25,9 @@ import android.widget.TextView;
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
+    Button bLogout;
+    EditText etName, etAge, etUsername;
+    UserLocalStore userLocalStore;
 
 
     /**
@@ -35,11 +40,49 @@ public class MainActivity extends ActionBarActivity
      */
     private CharSequence mTitle;
 
+    protected void onStart(){
+        super.onStart();
+        if(authenticate()== true){
+            displayUserDetails();
+        }
+    }
+
+    private boolean authenticate(){
+        return UserLocalStore.getUserLoggedIn();
+    }
+
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.bLogout:
+                userLocalStore.clearUserData();
+                userLocalStore.setUserLoggedIn(false);
+                startActivity(new Intent(this, Login.class));
+                break;
+        }
+    }
+
+    private void displayUserDetails(){
+        User user= userLocalStore.getLoggedInUser();
+        etUsername.setText(user.username);
+        etName.setText(user.name);
+        etAge.setText(user.age+ "");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        etName= (EditText) findViewById(R.id.etName);
+        etAge= (EditText) findViewById(R.id.etAge);
+        etUsername= (EditText) findViewById(R.id.etUsername);
+
+        bLogout= (Button) findViewById(R.id.bLogout);
+        bLogout.setOnClickListener((View.OnClickListener) this);
+        userLocalStore= new UserLocalStore(this);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
