@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Projet5ISS</string>
+    <string name="app_name">DC Tolosa</string>
 
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
@@ -14,4 +14,14 @@
 
     <!-- VALUES FOR UI -->
     <string name="background">3f3c51</string>
+
+    <!-- VALUES FOR INITIAL TESTS -->
+    <string name="profileName">Marie JEAN</string>
+    <string name="profileStreet">1 Rue FakeRue</string>
+    <string name="profilePostal">31200</string>
+    <string name="profileCity">Toulouse</string>
+    <string name="profileMail">mariejean@fakemail.com</string>
+    <string name="profileTel">06 00 00 00 00</string>
+
+
 </resources>
