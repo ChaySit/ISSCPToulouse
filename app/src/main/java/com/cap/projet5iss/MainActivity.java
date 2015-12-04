@@ -2,24 +2,18 @@ package com.cap.projet5iss;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity
@@ -42,9 +36,9 @@ public class MainActivity extends ActionBarActivity
 
     protected void onStart(){
         super.onStart();
-        if(authenticate()== true){
+        /*if(authenticate()== true){
             displayUserDetails();
-        }
+        }*/
     }
 
     private boolean authenticate(){
@@ -61,27 +55,19 @@ public class MainActivity extends ActionBarActivity
         }
     }
 
-    private void displayUserDetails(){
-        User user= userLocalStore.getLoggedInUser();
+    /*private void displayUserDetails(){
+        /User user= userLocalStore.getLoggedInUser();
         etUsername.setText(user.username);
         etName.setText(user.name);
         etAge.setText(user.age+ "");
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etName= (EditText) findViewById(R.id.etName);
-        etAge= (EditText) findViewById(R.id.etAge);
-        etUsername= (EditText) findViewById(R.id.etUsername);
-
-        bLogout= (Button) findViewById(R.id.bLogout);
-        bLogout.setOnClickListener((View.OnClickListener) this);
         userLocalStore= new UserLocalStore(this);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)

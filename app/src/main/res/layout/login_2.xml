@@ -99,7 +99,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageButton"
+                android:id="@+id/ib_backToLogin"
                 android:layout_alignTop="@+id/ib_register"
                 android:layout_alignLeft="@+id/et_addPostalCode"
                 android:layout_alignStart="@+id/et_addPostalCode"

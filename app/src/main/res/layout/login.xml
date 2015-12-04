@@ -14,19 +14,19 @@
 
         <ImageView
             android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             android:id="@+id/iv_logo"
             android:layout_gravity="top|center_horizontal"
             android:paddingTop="50dp"
             android:layout_alignParentLeft="false"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_toLeftOf="@+id/rb_femme"
+            android:layout_toStartOf="@+id/rb_femme" />
 
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Votre pseudo"
             android:ems="10"
             android:id="@+id/et_name"
             android:gravity="center_vertical|center_horizontal"
@@ -36,12 +36,11 @@
             android:typeface="serif"
             android:layout_marginBottom="10dp"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/iv_logo"
-            android:layout_marginTop="50dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:background="#d3dcdcdc"
-            android:layout_marginRight="40dp" />
+            android:layout_marginRight="40dp"
+            android:layout_below="@+id/iv_logo" />
 
         <EditText
             android:layout_width="fill_parent"
@@ -49,11 +48,10 @@
             android:inputType="phone"
             android:ems="10"
             android:id="@+id/et_phone"
-            android:text="Votre numéro de téléphone"
             android:gravity="center_horizontal"
             android:layout_alignParentLeft="false"
             android:layout_alignParentTop="false"
-            android:layout_below="@+id/et_name"
+            android:layout_below="@+id/textView3"
             android:phoneNumber="true"
             android:typeface="serif"
             android:layout_marginBottom="10dp"
@@ -71,11 +69,10 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/et_serialnumber"
-            android:text="Serial Number"
             android:gravity="center_horizontal"
             android:layout_alignParentLeft="false"
             android:layout_alignParentTop="false"
-            android:layout_below="@+id/et_phone"
+            android:layout_below="@+id/textView4"
             android:singleLine="false"
             android:typeface="serif"
             android:layout_marginBottom="40dp"
@@ -119,6 +116,33 @@
             android:layout_alignRight="@+id/et_serialnumber"
             android:layout_alignEnd="@+id/et_serialnumber"
             android:layout_marginRight="40dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Votre Pseudo"
+            android:id="@+id/textView2"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/et_name"
+            android:layout_above="@+id/et_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Votre numéro de téléhone"
+            android:id="@+id/textView3"
+            android:layout_below="@+id/et_name"
+            android:layout_alignLeft="@+id/et_phone"
+            android:layout_alignStart="@+id/et_phone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Numéro de série de votre puce"
+            android:id="@+id/textView4"
+            android:layout_below="@+id/et_phone"
+            android:layout_alignLeft="@+id/et_serialnumber"
+            android:layout_alignStart="@+id/et_serialnumber" />
 
     </RelativeLayout>
 </RelativeLayout>
