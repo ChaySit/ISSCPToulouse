@@ -1,4 +1,4 @@
-package com.cap.projet5iss;
+﻿package com.cap.projet5iss;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
+//Juste pour le test 
 
 /**
  * Created by Nana on 01/12/2015.
